@@ -3,6 +3,11 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const passport = require('passport');
+
+const localStrategy = require('./passport/local');
+const jwtStrategy = require('./passport/jwt');
+
 const {DATABASE_URL} = require('./config'); 
 // const DATABASE_URL = 'mongodb://dev:devdev1@ds115022.mlab.com:15022/back-end-capstone-test';
 
@@ -12,9 +17,14 @@ const { dbConnect } = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
 
 const foodsRouter = require('./routes/foods');
+const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
 
 const app = express();
 app.use(express.json());
+
+passport.use(localStrategy);
+passport.use(jwtStrategy);
 
 app.use(
   morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
@@ -30,6 +40,9 @@ app.use(
 
 //Routers
 app.use('/api/foods', foodsRouter);
+
+app.use('/api/users', usersRouter);
+app.use('/api', authRouter);
 
 function runServer(port = PORT) {
   const server = app
