@@ -18,7 +18,7 @@ router.post('/', (req, res, next) => {
     return next(err);
   }
 
-  const stringFields = ['username', 'password', 'fullname'];
+  const stringFields = ['username', 'password', 'email'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
   );
@@ -78,8 +78,8 @@ router.post('/', (req, res, next) => {
   }
 
   // Username and password were validated as pre-trimmed
-  let { username, password, fullname = '' } = req.body;
-  fullname = fullname.trim();
+  let { username, password, email = '' } = req.body;
+  email = email.trim();
 
   // Remove explicit hashPassword if using pre-save middleware
   return User.hashPassword(password)
@@ -87,7 +87,7 @@ router.post('/', (req, res, next) => {
       const newUser = {
         username,
         password: digest,
-        fullname
+        email
       };
       return User.create(newUser);
     })
