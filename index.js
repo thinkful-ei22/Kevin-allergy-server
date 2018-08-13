@@ -19,6 +19,7 @@ const { dbConnect } = require('./db-mongoose');
 const foodsRouter = require('./routes/foods');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const mapsRouter = require('./routes/maps');
 
 const app = express();
 app.use(express.json());
@@ -43,6 +44,8 @@ app.use('/api/foods', foodsRouter);
 
 app.use('/api/users', usersRouter);
 app.use('/api/', authRouter);
+
+app.use('/api/', mapsRouter);
 
 function runServer(port = PORT) {
   const server = app
