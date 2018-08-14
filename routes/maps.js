@@ -1,6 +1,5 @@
 const request = require('request');
 const express = require('express');
-// const axios = require('axios');
 const router = express.Router();
 
 //backend call to google maps api because front-end gives me CORS
@@ -19,12 +18,5 @@ router.get('/markers/:lat/:lng/:API_KEY', (req, res, next) => {
     }
   });
 });
-
-// router.get('/markers/:lat/:lng/:API_KEY', (req, res, next) => {
-//   const {lat, lng, API_KEY} = req.params;
-//   console.log(lat, lng, API_KEY);
-//   const googleUrlCall = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=5000&keyword=pharmacies&key=${API_KEY}`;
-//   axios.get(googleUrlCall)
-// });
 
 module.exports = router;

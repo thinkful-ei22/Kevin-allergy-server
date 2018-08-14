@@ -1,60 +1,17 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-
+const passport = require('passport');
 const Food = require('../db/models/food');
 
 const router = express.Router();
-
-//get all with or without searchterm
-router.get('/', (req, res, next) => {
-  const {searchTerm} = req.query;
-  let filter = {};
-
-  if(searchTerm){
-    const re = new RegExp(searchTerm, 'i');
-    filter.$or = [{ 'name': re }];
-  }
-
-  Food.find(filter)
-    .sort('name')
-    .then(results => {
-      res.json(results);
-    })
-    .catch(err => {
-      next(err);
-    });
-});
-
-//get 1 food item specifically
-router.get('/:id', (req, res, next) => {
-  const { id } = req.params;
-  // const userId = req.user.id;
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    const err = new Error('The `id` is not valid');
-    err.status = 400;
-    return next(err);
-  }
-
-  Food.findOne({_id: id, /* userId */})
-    .populate('tags')
-    .then(result => {
-      if (result) {
-        res.json(result);
-      } else {
-        next();
-      }
-    })
-    .catch(err => {
-      next(err);
-    });
-});
+router.use(passport.authenticate('jwt', { session: false, failWithError: true }));
 
 //create a new food item, most likely with jwt auth
 router.post('/', (req, res, next) => {
   const { name, ingredients= [] } = req.body;
   console.log(name, ingredients);
-  /* const userId = req.user.id; */
+  const userId = req.user.id;
   //validating input
   if (!name) {
     const err = new Error('Missing `name` in request body');
@@ -78,7 +35,7 @@ router.post('/', (req, res, next) => {
   //   });
   // }
 
-  const newFood = { name, ingredients, /* userId */ };
+  const newFood = { name, ingredients, userId };
 
   Food.create(newFood)
     .then(result => {
@@ -97,7 +54,7 @@ router.post('/', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
   const { id } = req.params;
   const {name, ingredients = [] } = req.body;
-  // const userId = req.user.id;
+  const userId = req.user.id;
   /***** Never trust users - validate input *****/
   if (!mongoose.Types.ObjectId.isValid(id)) {
     const err = new Error('The `id` is not valid');
@@ -128,7 +85,7 @@ router.put('/:id', (req, res, next) => {
 
   const updateFood = { name, ingredients };
 
-  Food.findOneAndUpdate({_id: id, /* userId */}, updateFood, { new: true })
+  Food.findOneAndUpdate({_id: id, userId}, updateFood, { new: true })
     .then(result => {
       if (result) {
         res.json(result);
@@ -144,7 +101,7 @@ router.put('/:id', (req, res, next) => {
 //delete a food item with jwt auth
 router.delete('/:id', (req, res, next) => {
   const { id } = req.params;
-  // const userId = req.user.id;
+  const userId = req.user.id;
   /***** Never trust users - validate input *****/
   if (!mongoose.Types.ObjectId.isValid(id)) {
     const err = new Error('The `id` is not valid');
@@ -152,7 +109,7 @@ router.delete('/:id', (req, res, next) => {
     return next(err);
   }
 
-  Food.findOneAndDelete({_id: id, /* userId */})
+  Food.findOneAndDelete({_id: id, userId})
     .then(() => {
       res.sendStatus(204);
     })

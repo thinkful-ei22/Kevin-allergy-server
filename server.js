@@ -16,7 +16,8 @@ const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
 
-const foodsRouter = require('./routes/foods');
+const getFoodsRouter = require('./routes/getfoods');
+const jwtFoodsRouter = require('./routes/protectedfoods');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const mapsRouter = require('./routes/maps');
@@ -40,7 +41,8 @@ app.use(
 );
 
 //Routers
-app.use('/api/foods', foodsRouter);
+app.use('/api/foods', getFoodsRouter);
+app.use('/api/foods', jwtFoodsRouter);
 
 app.use('/api/users', usersRouter);
 app.use('/api/', authRouter);
