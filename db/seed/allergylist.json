@@ -234,5 +234,9 @@
   {
     "name": "walnut",
     "category": "tree nuts"
+  },
+  {
+    "name": "cheese",
+    "category": "milk"
   }
 ]

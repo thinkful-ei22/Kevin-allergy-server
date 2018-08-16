@@ -1,7 +1,5 @@
-
-
 const express = require('express');
-
+const validator = require('email-validator');
 const User = require('../db/models/user');
 
 const router = express.Router();
@@ -17,6 +15,15 @@ router.post('/', (req, res, next) => {
     err.status = 422;
     return next(err);
   }
+
+  console.log(req.body.email, 'email');
+ 
+  if(validator.validate(req.body.email) === false){
+    const err = new Error('Enter a valid e-mail address');
+    err.status = 422;
+    return next(err);
+  }
+  
 
   const stringFields = ['username', 'password', 'email'];
   const nonStringField = stringFields.find(

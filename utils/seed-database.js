@@ -25,7 +25,6 @@ mongoose.connect(DATABASE_URL)
       Food.insertMany(seedFoods),
 
       Allergen.insertMany(seedAllergens),
-      Allergen.createIndexes(),
     ]);
   })
   .then(() => {
