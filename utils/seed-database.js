@@ -7,8 +7,10 @@ const mongoose = require('mongoose');
 const {DATABASE_URL} = require('../config');
 console.log(DATABASE_URL);
 const Food = require('../db/models/food');
+const Allergen = require('../db/models/allergen');
 
 const seedFoods = require('../db/seed/foods');
+const seedAllergens = require('../db/seed/allergylist');
 // const seedFolders = require('../db/seed/folders');
 
 console.log(`Connecting to mongodb at ${DATABASE_URL}`);
@@ -22,8 +24,8 @@ mongoose.connect(DATABASE_URL)
     return Promise.all([
       Food.insertMany(seedFoods),
 
-      // Folder.insertMany(seedFolders),
-      // Folder.createIndexes(),
+      Allergen.insertMany(seedAllergens),
+      Allergen.createIndexes(),
     ]);
   })
   .then(() => {
