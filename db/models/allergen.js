@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const allergenSchema = new mongoose.Schema({
   name: {type: String, require: true, unique: true},
-  category: [{type: String, required: true}]
+  category: {type: String, required: true}
 });
 
 allergenSchema.set('timestamps', true);

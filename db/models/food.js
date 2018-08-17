@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const foodSchema = new mongoose.Schema({
   name: {type: String, require: true, unique: true},
-  ingredients:[{type: String, required: true}]
+  ingredients:[{type: String, required: true}],
+  comments: [{type: String}]
 });
 
 foodSchema.set('timestamps', true);

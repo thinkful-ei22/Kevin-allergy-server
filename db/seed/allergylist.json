@@ -1,242 +1,258 @@
 [
   {
     "name": "egg",
-    "category": "eggs"
+    "category": "Eggs"
   },
   {
     "name": "milk",
-    "category": "milk"
+    "category": "Milk"
   },
   {
     "name": "peanut",
-    "category": "peanuts"
+    "category": "Peanuts"
   },
   {
     "name": "rice",
-    "category": "rice"
+    "category": "Rice"
   },
   {
     "name": "sesame",
-    "category": "sesame"
+    "category": "Sesame"
   },
   {
     "name": "soy",
-    "category": "soy"
+    "category": "Soy"
   },
   {
     "name": "sulfite",
-    "category": "sulfites"
+    "category": "Sulfites"
   },
   {
     "name": "garlic",
-    "category": "garlic"
+    "category": "Garlic"
   },
   {
     "name": "oat",
-    "category": "oats"
+    "category": "Oats"
   },
   {
     "name": "wheat",
-    "category": "wheat"
+    "category": "Wheat"
   },
   {
     "name": "fish",
-    "category": "fish"
+    "category": "Fish"
   },
   {
     "name": "beef",
-    "category": "meat"
+    "category": "Meat"
   },
   {
     "name": "pork",
-    "category": "meat"
+    "category": "Meat"
   },
   {
     "name": "lamb",
-    "category": "meat"
+    "category": "Meat"
   },
   {
     "name": "shrimp",
-    "category": "shellfish"
+    "category": "Shellfish"
   },
   {
     "name": "crab",
-    "category": "shellfish"
+    "category": "Shellfish"
   },
   {
     "name": "lobster",
-    "category": "shellfish"
+    "category": "Shellfish"
   },
   {
     "name": "clam",
-    "category": "shellfish"
+    "category": "Shellfish"
   },
   {
     "name": "mussel",
-    "category": "shellfish"
+    "category": "Shellfish"
   },
   {
     "name": "oyster",
-    "category": "shellfish"
+    "category": "Shellfish"
   },
   {
     "name": "scallop",
-    "category": "shellfish"
+    "category": "Shellfish"
   },
   {
     "name": "mango",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "strawberry",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "apple",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "avocado",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "banana",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "cherry",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "orange",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "grapefruit",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "clementine",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "kiwi",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "melon",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "nectarine",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "peach",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "pear",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "pineapple",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "plum",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "tomato",
-    "category": "fruit"
+    "category": "Fruit"
   },
   {
     "name": "jalapeno",
-    "category": "hot peppers"
+    "category": "Hot Peppers"
+  },
+  {
+    "name": "cayenne",
+    "category": "Hot Peppers"
   },
   {
     "name": "habanero",
-    "category": "hot peppers"
+    "category": "Hot Peppers"
   },
   {
     "name": "serrano pepper",
-    "category": "hot peppers"
+    "category": "Hot Peppers"
   },
   {
     "name": "tabasco pepper",
-    "category": "hot peppers"
+    "category": "Hot Peppers"
   },
   {
     "name": "chili pepper",
-    "category": "hot peppers"
+    "category": "Hot Peppers"
   },
   {
     "name": "carolina reaper",
-    "category": "hot peppers"
+    "category": "Hot Peppers"
   },
   {
     "name": "pimiento",
-    "category": "hot peppers"
+    "category": "Hot Peppers"
   },
   {
     "name": "almond",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "brazil nut",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "cashew",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "chestnut",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "cobnut",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "filbert nut",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "hazelnut",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "filbert",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "macadamia nut",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "pecan",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "pistachio",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "pine nut",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "shea nut",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "walnut",
-    "category": "tree nuts"
+    "category": "Tree Nuts"
   },
   {
     "name": "cheese",
-    "category": "milk"
+    "category": "Milk"
+  },
+  {
+    "name": "yogurt",
+    "category": "Milk"
+  },
+  {
+    "name": "cream",
+    "category": "Milk"
+  },
+  {
+    "name": "butter",
+    "category": "Milk"
   }
 ]
