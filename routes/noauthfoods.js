@@ -90,8 +90,8 @@ router.get('/:id/allergens', (req, res, next) => {
 
 router.put('/:id/comments', (req, res, next) => {
   const { id } = req.params;
-  const { comments } = req.body;
-  console.log(comments);
+  const { comments, search } = req.body;
+  console.log(comments, search);
   /***** Never trust users - validate input *****/
   if (!mongoose.Types.ObjectId.isValid(id)) {
     const err = new Error('The `id` is not valid');
