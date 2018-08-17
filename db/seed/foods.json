@@ -12,7 +12,8 @@
   {
     "_id": "111111111111111111111102",
     "name": "Chicken Panini",
-    "ingredients": ["Bread", "Cheese", "Tomato", "Chicken", "Mayonnaise", "Pepper"]
+    "ingredients": ["Bread", "Cheese", "Tomato", "Chicken", "Mayonnaise", "Pepper"],
+    "comments":["aedfadsfadsfasdf"]
   },
   {
     "_id": "111111111111111111111103",

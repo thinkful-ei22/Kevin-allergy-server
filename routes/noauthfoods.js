@@ -90,8 +90,8 @@ router.get('/:id/allergens', (req, res, next) => {
 
 router.put('/:id/comments', (req, res, next) => {
   const { id } = req.params;
-  const { comments, search } = req.body;
-  console.log(comments, search);
+  const { comments, searchTerm} = req.body;
+  console.log(comments);
   /***** Never trust users - validate input *****/
   if (!mongoose.Types.ObjectId.isValid(id)) {
     const err = new Error('The `id` is not valid');
@@ -111,7 +111,13 @@ router.put('/:id/comments', (req, res, next) => {
     .then(result => {
       console.log(result, 'new comment');
       if (result) {
-        res.json(result);
+        Food.find({name: {$in: searchTerm}})
+          .then(results => {
+            if(results){
+              res.json(results);
+            }
+          });
+        // res.json(result);
       } else {
         next();
       }
