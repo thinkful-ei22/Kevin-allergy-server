@@ -1,5 +1,3 @@
-
-
 const { Strategy: LocalStrategy } = require('passport-local');
 
 const User = require('../db/models/user');

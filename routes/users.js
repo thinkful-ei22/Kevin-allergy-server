@@ -11,7 +11,7 @@ router.post('/', (req, res, next) => {
   const missingField = requiredFields.find(field => !(field in req.body));
 
   if (missingField) {
-    const err = new Error(`Missing '${missingField}' in request body`);
+    const err = new Error(`Missing '${missingField}' in request body.`);
     err.status = 422;
     return next(err);
   }
@@ -19,19 +19,18 @@ router.post('/', (req, res, next) => {
   console.log(req.body.email, 'email');
  
   if(validator.validate(req.body.email) === false){
-    const err = new Error('Enter a valid e-mail address');
+    const err = new Error('Enter a valid e-mail address.');
     err.status = 422;
     return next(err);
   }
   
-
   const stringFields = ['username', 'password', 'email'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
   );
 
   if (nonStringField) {
-    const err = new Error(`Field: '${nonStringField}' must be type String`);
+    const err = new Error(`'${nonStringField}' must be a string.`);
     err.status = 422;
     return next(err);
   }
@@ -49,7 +48,7 @@ router.post('/', (req, res, next) => {
   );
 
   if (nonTrimmedField) {
-    const err = new Error(`Field: '${nonTrimmedField}' cannot start or end with whitespace`);
+    const err = new Error(`'${nonTrimmedField}' can not start or end with any white space.`);
     err.status = 422;
     return next(err);
   }
@@ -67,7 +66,7 @@ router.post('/', (req, res, next) => {
   );
   if (tooSmallField) {
     const min = sizedFields[tooSmallField].min;
-    const err = new Error(`Field: '${tooSmallField}' must be at least ${min} characters long`);
+    const err = new Error(`'${tooSmallField}' must be at least ${min} characters long.`);
     err.status = 422;
     return next(err);
   }
@@ -79,7 +78,7 @@ router.post('/', (req, res, next) => {
 
   if (tooLargeField) {
     const max = sizedFields[tooLargeField].max;
-    const err = new Error(`Field: '${tooLargeField}' must be at most ${max} characters long`);
+    const err = new Error(`'${tooLargeField}' must be at most ${max} characters long.`);
     err.status = 422;
     return next(err);
   }
@@ -103,7 +102,7 @@ router.post('/', (req, res, next) => {
     })
     .catch(err => {
       if (err.code === 11000) {
-        err = new Error('The username already exists');
+        err = new Error('This username already exists. Please choose another.');
         err.status = 400;
       }
       next(err);
