@@ -18,10 +18,12 @@ router.post('/', (req, res, next) => {
 
   console.log(req.body.email, 'email');
  
-  if(validator.validate(req.body.email) === false){
-    const err = new Error('Enter a valid e-mail address.');
-    err.status = 422;
-    return next(err);
+  if(req.body.email){
+    if(validator.validate(req.body.email) === false){
+      const err = new Error('Enter a valid e-mail address.');
+      err.status = 422;
+      return next(err);
+    }
   }
   
   const stringFields = ['username', 'password', 'email'];
